@@ -1,7 +1,7 @@
 import { Router } from "express"
 import { healthCheck } from "@/controller/controller";
 import { login, refreshToken } from "@/controller/authController";
-import { getAllEmployees, createEmployee, updateEmployeeById, getEmployeeById, deleteEmployeeById } from "@/controller/employeeController";
+import { getAllEmployees, updateEmployeeById, createEmployee , getEmployeeById, deleteEmployeeById } from "@/controller/employeeController";
 
 const apiRouter = (): Router => {
     const api = Router();

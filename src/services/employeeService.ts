@@ -78,6 +78,9 @@ const updateEmployeeById = async (id: string, {
     name?: string;
     role?: EmployeeRole;
 }): Promise<Employee> => {
+    if (password) {
+        password = passwordEncoder(password);
+    }
     const employee = await prisma.employee.update({
         where: {
             id,

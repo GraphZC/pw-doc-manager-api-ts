@@ -1,14 +1,21 @@
-import { EmployeeCreateSchema, EmployeeUpdateOneSchema } from "@/schema/joi";
 import employeeService from "@/services/employeeService";
 import { Request, Response } from "express";
+import { EmployeeRole } from "@prisma/client";
+import { EmployeeCreateSchema, EmployeeUpdateOneSchema } from "@/schema/joi";
 
 export const createEmployee = async (req: Request, res: Response) => {
     const { body } = req;
-    const { value, error } = EmployeeCreateSchema.validate(body);
+    const { value, error } = EmployeeCreateSchema.unknown(true).validate(body);
 
     if (error) {
         return res.status(400).json({
             message: error.message
+        });
+    }
+
+    if (await employeeService.isEmployeeExist(value.username)) {
+        return res.status(400).json({
+            message: "Username already exist"
         });
     }
 
@@ -47,7 +54,7 @@ export const updateEmployeeById = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { body } = req;
 
-    const { value, error } = EmployeeUpdateOneSchema.validate(body);
+    const { value, error } = EmployeeUpdateOneSchema.unknown(true).validate(body);
 
     if (error) {
         return res.status(400).json({
