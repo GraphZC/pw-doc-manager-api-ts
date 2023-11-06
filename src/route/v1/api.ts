@@ -4,6 +4,7 @@ import { login, refreshToken } from "@/controller/authController";
 import { getAllEmployees, updateEmployeeById, createEmployee , getEmployeeById, deleteEmployeeById } from "@/controller/employeeController";
 import { getCustomerById, getAllCustomers, createCustomer, updateCustomerById, deleteCustomerById } from "@/controller/customerController";
 import authMiddleware from "@/middleware/authMiddleware";
+import { createProduct, deleteProductById, getAllProducts, getProductById, updateProduct } from "@/controller/productController";
 
 const apiRouter = (): Router => {
     const api = Router();
@@ -28,6 +29,12 @@ const apiRouter = (): Router => {
     api.put('/customer/:id', authMiddleware, updateCustomerById);
     api.delete('/customer/:id', authMiddleware, deleteCustomerById);
 
+    // Product
+    api.get('/product', authMiddleware, getAllProducts);
+    api.get('/product/:id', authMiddleware, getProductById);
+    api.post('/product', authMiddleware, createProduct);
+    api.put('/product/:id', authMiddleware, updateProduct);
+    api.delete('/product/:id', authMiddleware, deleteProductById);
 
     return api;
 }
