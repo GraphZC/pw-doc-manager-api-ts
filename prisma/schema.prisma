@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username      String          @unique
+  password      String
+  name          String
+  role          EmployeeRole
+  customerOrder CustomerOrder[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+enum EmployeeRole {
+  ADMIN
+  EMPLOYEE
+}
+
+model Product {
+  id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  code        String?
+  name        String
+  description String?
+  price       Float
+  purchase    Purchase[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Invoice {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  paidAt        DateTime?
+  customerOrder CustomerOrder?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model CustomerOrder {
+  id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  customer   Customer   @relation(fields: [customerId], references: [id])
+  customerId String     @db.Uuid
+  employee   Employee   @relation(fields: [employeeId], references: [id])
+  employeeId String     @db.Uuid
+  invoice    Invoice    @relation(fields: [invoiceId], references: [id])
+  invoiceId  String     @unique @db.Uuid
+  purchase   Purchase[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  
+}
+
+model ServiceDay {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  poolId    String   @db.Uuid @unique
+  pool      Pool     @relation(fields: [poolId], references: [id])
+  monday    Boolean
+  tuesday   Boolean
+  wednesday Boolean
+  thursday  Boolean
+  friday    Boolean
+  saturday  Boolean
+  sunday    Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Pool {
+  id               String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  customer         Customer     @relation(fields: [customerId], references: [id])
+  customerId       String       @db.Uuid
+  purchase         Purchase[]
+  address          String
+  price            Float
+  chemicalIncluded Boolean
+  type             PoolType
+  inService        Boolean
+  serviceDay       ServiceDay?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+enum PoolType {
+  CHLORINE
+  SALT
+}
+
+model Customer {
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String
+  address       String?
+  telephone     String?
+  taxId         String?         
+  pool          Pool[]
+  customerOrder CustomerOrder[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model Purchase {
+  id              String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  pool            Pool?         @relation(fields: [poolId], references: [id])
+  poolId          String?       @db.Uuid
+  product         Product?       @relation(fields: [productId], references: [id])
+  productId       String?        @db.Uuid
+  customerOrder   CustomerOrder @relation(fields: [customerOrderId], references: [id])
+  customerOrderId String        @db.Uuid
+  quantity        Int
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
