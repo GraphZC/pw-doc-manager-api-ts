@@ -34,20 +34,20 @@ export const createPool = async (req: Request, res: Response) => {
     const { value: pool, error: dayError } = PoolCreateSchema.unknown(true).validate({
         address: body.address,
         price: Number(body.price),
-        chemicalIncluded: body.chemicalIncluded,
-        inService: body.inService,
+        chemicalIncluded: body.chemicalIncluded.toString().toLowerCase() === 'true',
+        inService: body.inService.toString().toLowerCase() === 'true',
         customerId: body.customerId,
         type: body.type,
     });
 
     const { value: serviceDay, error: serviceError } = ServiceDayUpdateOneSchema.unknown(true).validate({
-        monday: body.serviceDay.monday,
-        tuesday: body.serviceDay.tuesday,
-        wednesday: body.serviceDay.wednesday,
-        thursday: body.serviceDay.thursday,
-        friday: body.serviceDay.friday,
-        saturday: body.serviceDay.saturday,
-        sunday: body.serviceDay.sunday,
+        monday: body.serviceDay.monday.toString().toLowerCase() === 'true',
+        tuesday: body.serviceDay.tuesday.toString().toLowerCase() === 'true',
+        wednesday: body.serviceDay.wednesday.toString().toLowerCase() === 'true',
+        thursday: body.serviceDay.thursday.toString().toLowerCase() === 'true',
+        friday: body.serviceDay.friday.toString().toLowerCase() === 'true',
+        saturday: body.serviceDay.saturday.toString().toLowerCase() === 'true',
+        sunday: body.serviceDay.sunday.toString().toLowerCase() === 'true',
     });
 
     if (dayError || serviceError) {
