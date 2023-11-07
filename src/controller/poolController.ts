@@ -1,5 +1,4 @@
 import { PoolCreateSchema, PoolUpdateOneSchema, ServiceDayUpdateOneSchema } from '@/schema/joi';
-import { PoolUpdateManyWithoutCustomerNestedInputSchemaObject } from '@/schema/joi/objects';
 import poolService from '@/services/poolService';
 import type { Request, Response } from 'express';
 
@@ -32,8 +31,24 @@ export const getPoolById = async (req: Request, res: Response) => {
 export const createPool = async (req: Request, res: Response) => {
     const { body } = req;
 
-    const { value: pool, error: dayError } = PoolCreateSchema.unknown(true).validate(body);
-    const { value: serviceDay, error: serviceError } = ServiceDayUpdateOneSchema.unknown(true).validate(body.serviceDay);
+    const { value: pool, error: dayError } = PoolCreateSchema.unknown(true).validate({
+        address: body.address,
+        price: Number(body.price),
+        chemicalIncluded: body.chemicalIncluded,
+        inService: body.inService,
+        customerId: body.customerId,
+        type: body.type,
+    });
+
+    const { value: serviceDay, error: serviceError } = ServiceDayUpdateOneSchema.unknown(true).validate({
+        monday: body.serviceDay.monday,
+        tuesday: body.serviceDay.tuesday,
+        wednesday: body.serviceDay.wednesday,
+        thursday: body.serviceDay.thursday,
+        friday: body.serviceDay.friday,
+        saturday: body.serviceDay.saturday,
+        sunday: body.serviceDay.sunday,
+    });
 
     if (dayError || serviceError) {
         return res.status(400).json({

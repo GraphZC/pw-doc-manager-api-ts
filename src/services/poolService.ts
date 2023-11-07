@@ -3,8 +3,6 @@ import Prisma from './prisma';
 
 const prisma = Prisma.client();
 
-
-
 const createPool = async (pool: Pool, serviceDay :ServiceDay ) => {
     const newServiceDay = await prisma.serviceDay.create({
         data: {
@@ -30,22 +28,24 @@ const createPool = async (pool: Pool, serviceDay :ServiceDay ) => {
         }, 
     });
 
-    const retPool = await prisma.pool.findUnique({
+    const createdPool = await prisma.pool.findUnique({
         where: {
-            id: newPool.id
+            id: newPool.id,
         },
         include: {
-            serviceDay: true
+            serviceDay: true,
+            customer: true
         }
     });
 
-    return retPool;
+    return createdPool;
 }
 
 const getAllPools = async (): Promise<Pool[]> => {
     const pools = await prisma.pool.findMany({
         include: {
-            serviceDay: true
+            serviceDay: true,
+            customer: true
         }
     });
 
@@ -58,7 +58,8 @@ const findPoolById = async (id: string): Promise<Pool | null> => {
             id,
         },
         include: {
-            serviceDay: true
+            serviceDay: true,
+            customer: true
         }
     });
 
@@ -89,7 +90,8 @@ const updatePool = async (id: string, pool: Pool, serviceDay: ServiceDay): Promi
             }
         },
         include: {
-            serviceDay: true
+            serviceDay: true,
+            customer: true
         }
     });
 
@@ -102,7 +104,8 @@ const deletePoolById = async (id: string): Promise<Pool> => {
             id,
         },
         include: {
-            serviceDay: true
+            serviceDay: true,
+            customer: true
         }
     });
 
