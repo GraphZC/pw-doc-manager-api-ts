@@ -26,6 +26,8 @@ Joi.boolean()),
   type: Joi.alternatives().try(Joi.object().keys(EnumPoolTypeFilterSchemaObject)),
   inService: Joi.alternatives().try(Joi.object().keys(BoolFilterSchemaObject),
 Joi.boolean()),
+  serviceDayId: Joi.alternatives().try(Joi.object().keys(UuidFilterSchemaObject),
+Joi.string()),
   createdAt: Joi.alternatives().try(Joi.object().keys(DateTimeFilterSchemaObject)),
   updatedAt: Joi.alternatives().try(Joi.object().keys(DateTimeFilterSchemaObject))
 }

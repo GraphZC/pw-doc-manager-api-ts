@@ -1,10 +1,9 @@
 // @ts-nocheck
 import Joi from 'joi';
-
+import { PoolUncheckedCreateNestedOneWithoutServiceDayInputSchemaObject } from './PoolUncheckedCreateNestedOneWithoutServiceDayInput.schema'
 
 export const ServiceDayUncheckedCreateInputSchemaObject = {
     id: Joi.string(),
-  poolId: Joi.string().required(),
   monday: Joi.boolean().required(),
   tuesday: Joi.boolean().required(),
   wednesday: Joi.boolean().required(),
@@ -13,5 +12,6 @@ export const ServiceDayUncheckedCreateInputSchemaObject = {
   saturday: Joi.boolean().required(),
   sunday: Joi.boolean().required(),
   createdAt: Joi.date(),
-  updatedAt: Joi.date()
+  updatedAt: Joi.date(),
+  pool: Joi.object().keys(PoolUncheckedCreateNestedOneWithoutServiceDayInputSchemaObject)
 }

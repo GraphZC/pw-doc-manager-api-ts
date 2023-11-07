@@ -5,7 +5,6 @@ import { PoolOrderByWithRelationInputSchemaObject } from './PoolOrderByWithRelat
 
 export const ServiceDayOrderByWithRelationInputSchemaObject = {
     id: SortOrderSchema,
-  poolId: SortOrderSchema,
   monday: SortOrderSchema,
   tuesday: SortOrderSchema,
   wednesday: SortOrderSchema,

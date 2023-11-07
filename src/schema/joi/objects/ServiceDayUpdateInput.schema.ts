@@ -3,7 +3,7 @@ import Joi from 'joi';
 import { StringFieldUpdateOperationsInputSchemaObject } from './StringFieldUpdateOperationsInput.schema';
 import { BoolFieldUpdateOperationsInputSchemaObject } from './BoolFieldUpdateOperationsInput.schema';
 import { DateTimeFieldUpdateOperationsInputSchemaObject } from './DateTimeFieldUpdateOperationsInput.schema';
-import { PoolUpdateOneRequiredWithoutServiceDayNestedInputSchemaObject } from './PoolUpdateOneRequiredWithoutServiceDayNestedInput.schema'
+import { PoolUpdateOneWithoutServiceDayNestedInputSchemaObject } from './PoolUpdateOneWithoutServiceDayNestedInput.schema'
 
 export const ServiceDayUpdateInputSchemaObject = {
     id: Joi.alternatives().try(Joi.string(),
@@ -24,5 +24,5 @@ Joi.object().keys(BoolFieldUpdateOperationsInputSchemaObject)),
 Joi.object().keys(BoolFieldUpdateOperationsInputSchemaObject)),
   createdAt: Joi.alternatives().try(Joi.object().keys(DateTimeFieldUpdateOperationsInputSchemaObject)),
   updatedAt: Joi.alternatives().try(Joi.object().keys(DateTimeFieldUpdateOperationsInputSchemaObject)),
-  pool: Joi.object().keys(PoolUpdateOneRequiredWithoutServiceDayNestedInputSchemaObject)
+  pool: Joi.object().keys(PoolUpdateOneWithoutServiceDayNestedInputSchemaObject)
 }

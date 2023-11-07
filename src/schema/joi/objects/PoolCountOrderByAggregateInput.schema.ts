@@ -10,6 +10,7 @@ export const PoolCountOrderByAggregateInputSchemaObject = {
   chemicalIncluded: SortOrderSchema,
   type: SortOrderSchema,
   inService: SortOrderSchema,
+  serviceDayId: SortOrderSchema,
   createdAt: SortOrderSchema,
   updatedAt: SortOrderSchema
 }

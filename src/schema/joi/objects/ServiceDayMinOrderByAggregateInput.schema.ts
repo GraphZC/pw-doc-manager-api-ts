@@ -4,7 +4,6 @@ import { SortOrderSchema } from '../enums/SortOrder.schema'
 
 export const ServiceDayMinOrderByAggregateInputSchemaObject = {
     id: SortOrderSchema,
-  poolId: SortOrderSchema,
   monday: SortOrderSchema,
   tuesday: SortOrderSchema,
   wednesday: SortOrderSchema,

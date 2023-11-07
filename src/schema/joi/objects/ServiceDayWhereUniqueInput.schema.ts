@@ -3,6 +3,5 @@ import Joi from 'joi';
 
 
 export const ServiceDayWhereUniqueInputSchemaObject = {
-    id: Joi.string(),
-  poolId: Joi.string()
+    id: Joi.string()
 }

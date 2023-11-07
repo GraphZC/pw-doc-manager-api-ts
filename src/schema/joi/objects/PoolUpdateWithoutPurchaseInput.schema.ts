@@ -6,7 +6,7 @@ import { BoolFieldUpdateOperationsInputSchemaObject } from './BoolFieldUpdateOpe
 import { EnumPoolTypeFieldUpdateOperationsInputSchemaObject } from './EnumPoolTypeFieldUpdateOperationsInput.schema';
 import { DateTimeFieldUpdateOperationsInputSchemaObject } from './DateTimeFieldUpdateOperationsInput.schema';
 import { CustomerUpdateOneRequiredWithoutPoolNestedInputSchemaObject } from './CustomerUpdateOneRequiredWithoutPoolNestedInput.schema';
-import { ServiceDayUpdateOneWithoutPoolNestedInputSchemaObject } from './ServiceDayUpdateOneWithoutPoolNestedInput.schema'
+import { ServiceDayUpdateOneRequiredWithoutPoolNestedInputSchemaObject } from './ServiceDayUpdateOneRequiredWithoutPoolNestedInput.schema'
 
 export const PoolUpdateWithoutPurchaseInputSchemaObject = {
     id: Joi.alternatives().try(Joi.string(),
@@ -23,5 +23,5 @@ Joi.object().keys(BoolFieldUpdateOperationsInputSchemaObject)),
   createdAt: Joi.alternatives().try(Joi.object().keys(DateTimeFieldUpdateOperationsInputSchemaObject)),
   updatedAt: Joi.alternatives().try(Joi.object().keys(DateTimeFieldUpdateOperationsInputSchemaObject)),
   customer: Joi.object().keys(CustomerUpdateOneRequiredWithoutPoolNestedInputSchemaObject),
-  serviceDay: Joi.object().keys(ServiceDayUpdateOneWithoutPoolNestedInputSchemaObject)
+  serviceDay: Joi.object().keys(ServiceDayUpdateOneRequiredWithoutPoolNestedInputSchemaObject)
 }

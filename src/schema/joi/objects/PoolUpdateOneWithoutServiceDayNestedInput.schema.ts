@@ -8,11 +8,13 @@ import { PoolWhereUniqueInputSchemaObject } from './PoolWhereUniqueInput.schema'
 import { PoolUpdateWithoutServiceDayInputSchemaObject } from './PoolUpdateWithoutServiceDayInput.schema';
 import { PoolUncheckedUpdateWithoutServiceDayInputSchemaObject } from './PoolUncheckedUpdateWithoutServiceDayInput.schema'
 
-export const PoolUpdateOneRequiredWithoutServiceDayNestedInputSchemaObject = {
+export const PoolUpdateOneWithoutServiceDayNestedInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(PoolCreateWithoutServiceDayInputSchemaObject),
 Joi.object().keys(PoolUncheckedCreateWithoutServiceDayInputSchemaObject)),
   connectOrCreate: Joi.object().keys(PoolCreateOrConnectWithoutServiceDayInputSchemaObject),
   upsert: Joi.object().keys(PoolUpsertWithoutServiceDayInputSchemaObject),
+  disconnect: Joi.boolean(),
+  delete: Joi.boolean(),
   connect: Joi.object().keys(PoolWhereUniqueInputSchemaObject),
   update: Joi.alternatives().try(Joi.object().keys(PoolUpdateWithoutServiceDayInputSchemaObject),
 Joi.object().keys(PoolUncheckedUpdateWithoutServiceDayInputSchemaObject))

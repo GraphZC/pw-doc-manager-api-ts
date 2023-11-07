@@ -7,8 +7,6 @@ import { DateTimeFieldUpdateOperationsInputSchemaObject } from './DateTimeFieldU
 export const ServiceDayUncheckedUpdateManyInputSchemaObject = {
     id: Joi.alternatives().try(Joi.string(),
 Joi.object().keys(StringFieldUpdateOperationsInputSchemaObject)),
-  poolId: Joi.alternatives().try(Joi.string(),
-Joi.object().keys(StringFieldUpdateOperationsInputSchemaObject)),
   monday: Joi.alternatives().try(Joi.boolean(),
 Joi.object().keys(BoolFieldUpdateOperationsInputSchemaObject)),
   tuesday: Joi.alternatives().try(Joi.boolean(),

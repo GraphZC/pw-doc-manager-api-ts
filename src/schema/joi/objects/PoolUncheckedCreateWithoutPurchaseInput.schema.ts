@@ -1,6 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { ServiceDayUncheckedCreateNestedOneWithoutPoolInputSchemaObject } from './ServiceDayUncheckedCreateNestedOneWithoutPoolInput.schema'
+
 
 export const PoolUncheckedCreateWithoutPurchaseInputSchemaObject = {
     id: Joi.string(),
@@ -9,7 +9,7 @@ export const PoolUncheckedCreateWithoutPurchaseInputSchemaObject = {
   price: Joi.number().required(),
   chemicalIncluded: Joi.boolean().required(),
   inService: Joi.boolean().required(),
+  serviceDayId: Joi.string().required(),
   createdAt: Joi.date(),
-  updatedAt: Joi.date(),
-  serviceDay: Joi.object().keys(ServiceDayUncheckedCreateNestedOneWithoutPoolInputSchemaObject)
+  updatedAt: Joi.date()
 }

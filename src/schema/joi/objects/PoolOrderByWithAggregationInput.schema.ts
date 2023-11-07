@@ -15,6 +15,7 @@ export const PoolOrderByWithAggregationInputSchemaObject = {
   chemicalIncluded: SortOrderSchema,
   type: SortOrderSchema,
   inService: SortOrderSchema,
+  serviceDayId: SortOrderSchema,
   createdAt: SortOrderSchema,
   updatedAt: SortOrderSchema,
   _count: Joi.object().keys(PoolCountOrderByAggregateInputSchemaObject),

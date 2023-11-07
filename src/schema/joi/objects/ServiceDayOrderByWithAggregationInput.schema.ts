@@ -7,7 +7,6 @@ import { ServiceDayMinOrderByAggregateInputSchemaObject } from './ServiceDayMinO
 
 export const ServiceDayOrderByWithAggregationInputSchemaObject = {
     id: SortOrderSchema,
-  poolId: SortOrderSchema,
   monday: SortOrderSchema,
   tuesday: SortOrderSchema,
   wednesday: SortOrderSchema,

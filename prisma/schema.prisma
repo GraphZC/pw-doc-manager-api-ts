@@ -63,8 +63,7 @@ model CustomerOrder {
 
 model ServiceDay {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  poolId    String   @db.Uuid @unique
-  pool      Pool     @relation(fields: [poolId], references: [id])
+  pool      Pool?
   monday    Boolean
   tuesday   Boolean
   wednesday Boolean
@@ -86,7 +85,8 @@ model Pool {
   chemicalIncluded Boolean
   type             PoolType
   inService        Boolean
-  serviceDay       ServiceDay?
+  serviceDayId     String      @db.Uuid @unique
+  serviceDay       ServiceDay  @relation(fields: [serviceDayId], references: [id])
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 }

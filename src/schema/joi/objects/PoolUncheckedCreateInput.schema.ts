@@ -1,7 +1,6 @@
 // @ts-nocheck
 import Joi from 'joi';
-import { PurchaseUncheckedCreateNestedManyWithoutPoolInputSchemaObject } from './PurchaseUncheckedCreateNestedManyWithoutPoolInput.schema';
-import { ServiceDayUncheckedCreateNestedOneWithoutPoolInputSchemaObject } from './ServiceDayUncheckedCreateNestedOneWithoutPoolInput.schema'
+import { PurchaseUncheckedCreateNestedManyWithoutPoolInputSchemaObject } from './PurchaseUncheckedCreateNestedManyWithoutPoolInput.schema'
 
 export const PoolUncheckedCreateInputSchemaObject = {
     id: Joi.string(),
@@ -10,8 +9,8 @@ export const PoolUncheckedCreateInputSchemaObject = {
   price: Joi.number().required(),
   chemicalIncluded: Joi.boolean().required(),
   inService: Joi.boolean().required(),
+  serviceDayId: Joi.string().required(),
   createdAt: Joi.date(),
   updatedAt: Joi.date(),
-  purchase: Joi.object().keys(PurchaseUncheckedCreateNestedManyWithoutPoolInputSchemaObject),
-  serviceDay: Joi.object().keys(ServiceDayUncheckedCreateNestedOneWithoutPoolInputSchemaObject)
+  purchase: Joi.object().keys(PurchaseUncheckedCreateNestedManyWithoutPoolInputSchemaObject)
 }

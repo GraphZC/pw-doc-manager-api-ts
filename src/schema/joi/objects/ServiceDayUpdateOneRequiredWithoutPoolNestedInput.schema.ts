@@ -8,13 +8,11 @@ import { ServiceDayWhereUniqueInputSchemaObject } from './ServiceDayWhereUniqueI
 import { ServiceDayUpdateWithoutPoolInputSchemaObject } from './ServiceDayUpdateWithoutPoolInput.schema';
 import { ServiceDayUncheckedUpdateWithoutPoolInputSchemaObject } from './ServiceDayUncheckedUpdateWithoutPoolInput.schema'
 
-export const ServiceDayUpdateOneWithoutPoolNestedInputSchemaObject = {
+export const ServiceDayUpdateOneRequiredWithoutPoolNestedInputSchemaObject = {
     create: Joi.alternatives().try(Joi.object().keys(ServiceDayCreateWithoutPoolInputSchemaObject),
 Joi.object().keys(ServiceDayUncheckedCreateWithoutPoolInputSchemaObject)),
   connectOrCreate: Joi.object().keys(ServiceDayCreateOrConnectWithoutPoolInputSchemaObject),
   upsert: Joi.object().keys(ServiceDayUpsertWithoutPoolInputSchemaObject),
-  disconnect: Joi.boolean(),
-  delete: Joi.boolean(),
   connect: Joi.object().keys(ServiceDayWhereUniqueInputSchemaObject),
   update: Joi.alternatives().try(Joi.object().keys(ServiceDayUpdateWithoutPoolInputSchemaObject),
 Joi.object().keys(ServiceDayUncheckedUpdateWithoutPoolInputSchemaObject))

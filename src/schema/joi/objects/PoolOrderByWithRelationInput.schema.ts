@@ -13,6 +13,7 @@ export const PoolOrderByWithRelationInputSchemaObject = {
   chemicalIncluded: SortOrderSchema,
   type: SortOrderSchema,
   inService: SortOrderSchema,
+  serviceDayId: SortOrderSchema,
   createdAt: SortOrderSchema,
   updatedAt: SortOrderSchema,
   customer: Joi.object().keys(CustomerOrderByWithRelationInputSchemaObject),

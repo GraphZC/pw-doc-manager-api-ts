@@ -8,6 +8,7 @@ export const PoolCreateManyCustomerInputSchemaObject = {
   price: Joi.number().required(),
   chemicalIncluded: Joi.boolean().required(),
   inService: Joi.boolean().required(),
+  serviceDayId: Joi.string().required(),
   createdAt: Joi.date(),
   updatedAt: Joi.date()
 }
