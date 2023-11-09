@@ -16,6 +16,8 @@ Joi.object().keys(StringFieldUpdateOperationsInputSchemaObject)),
 Joi.object().keys(NullableStringFieldUpdateOperationsInputSchemaObject)),
   price: Joi.alternatives().try(Joi.number(),
 Joi.object().keys(FloatFieldUpdateOperationsInputSchemaObject)),
+  unit: Joi.alternatives().try(Joi.string(),
+Joi.object().keys(StringFieldUpdateOperationsInputSchemaObject)),
   createdAt: Joi.alternatives().try(Joi.object().keys(DateTimeFieldUpdateOperationsInputSchemaObject)),
   updatedAt: Joi.alternatives().try(Joi.object().keys(DateTimeFieldUpdateOperationsInputSchemaObject))
 }

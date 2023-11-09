@@ -23,6 +23,8 @@ Joi.string()),
 Joi.string()),
   price: Joi.alternatives().try(Joi.object().keys(FloatFilterSchemaObject),
 Joi.number()),
+  unit: Joi.alternatives().try(Joi.object().keys(StringFilterSchemaObject),
+Joi.string()),
   createdAt: Joi.alternatives().try(Joi.object().keys(DateTimeFilterSchemaObject)),
   updatedAt: Joi.alternatives().try(Joi.object().keys(DateTimeFilterSchemaObject)),
   purchase: Joi.object().keys(PurchaseListRelationFilterSchemaObject)

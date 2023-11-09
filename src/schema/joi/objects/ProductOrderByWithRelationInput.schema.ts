@@ -12,6 +12,7 @@ Joi.object().keys(SortOrderInputSchemaObject)),
   description: Joi.alternatives().try(SortOrderSchema,
 Joi.object().keys(SortOrderInputSchemaObject)),
   price: SortOrderSchema,
+  unit: SortOrderSchema,
   createdAt: SortOrderSchema,
   updatedAt: SortOrderSchema,
   purchase: Joi.object().keys(PurchaseOrderByRelationAggregateInputSchemaObject)

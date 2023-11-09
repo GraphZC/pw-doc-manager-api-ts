@@ -5,7 +5,6 @@ const prisma = Prisma.client();
 
 const getAllCustomers = async (): Promise<Customer[]> => {
     const customers = await prisma.customer.findMany({});
-        console.log(customers);
     return customers;
 };
 

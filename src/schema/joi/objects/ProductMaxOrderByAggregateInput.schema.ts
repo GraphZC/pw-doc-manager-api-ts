@@ -8,6 +8,7 @@ export const ProductMaxOrderByAggregateInputSchemaObject = {
   name: SortOrderSchema,
   description: SortOrderSchema,
   price: SortOrderSchema,
+  unit: SortOrderSchema,
   createdAt: SortOrderSchema,
   updatedAt: SortOrderSchema
 }

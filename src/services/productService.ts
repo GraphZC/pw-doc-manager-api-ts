@@ -23,6 +23,7 @@ const createProduct = async (data: {
     description?: string;
     price: number;
     stock: number;
+    unit: string;
 }) => {
     const product = await prisma.product.create({
         data: {
@@ -39,6 +40,7 @@ const updateProduct = async (id: string, data: {
     description?: string;
     price?: number;
     stock?: number;
+    unit?: string;
 }) => {
     const product = await prisma.product.update({
         where: {

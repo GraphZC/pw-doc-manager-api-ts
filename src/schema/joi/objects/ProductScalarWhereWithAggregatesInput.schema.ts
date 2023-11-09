@@ -22,6 +22,8 @@ Joi.string()),
 Joi.string()),
   price: Joi.alternatives().try(Joi.object().keys(FloatWithAggregatesFilterSchemaObject),
 Joi.number()),
+  unit: Joi.alternatives().try(Joi.object().keys(StringWithAggregatesFilterSchemaObject),
+Joi.string()),
   createdAt: Joi.alternatives().try(Joi.object().keys(DateTimeWithAggregatesFilterSchemaObject)),
   updatedAt: Joi.alternatives().try(Joi.object().keys(DateTimeWithAggregatesFilterSchemaObject))
 }

@@ -38,7 +38,7 @@ export const getProductById = async (req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
     const { body } = req;
 
-    const { value, error } = ProductCreateSchema.unknown(true).validate(body);
+    const { value, error } = ProductCreateSchema.unknown(true).validate(body, { convert: true });
 
     if (error) {
         return res.status(400).json({
@@ -61,8 +61,8 @@ export const updateProduct = async (req: Request, res: Response) => {
     const { body } = req;
     const { id } = req.params;
 
-    const { value, error } = ProductUpdateOneSchema.unknown(true).validate(body);
-
+    const { value, error } = ProductUpdateOneSchema.unknown(true).validate(body, { convert: true });
+    console.log(value);
     if (error) {
         return res.status(400).json({
             message: error.message
