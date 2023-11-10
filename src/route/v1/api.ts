@@ -6,6 +6,7 @@ import { getCustomerById, getAllCustomers, createCustomer, updateCustomerById, d
 import authMiddleware from "@/middleware/authMiddleware";
 import { createProduct, deleteProductById, getAllProducts, getProductById, updateProduct } from "@/controller/productController";
 import { getAllPools, getPoolById, createPool, updatePoolById, deletePoolById,  } from "@/controller/poolController";
+import { createBill, deleteBillById, getAllBills, getBillById, issueReceipt } from "@/controller/billController";
 
 const apiRouter = (): Router => {
     const api = Router();
@@ -44,6 +45,12 @@ const apiRouter = (): Router => {
     api.put('/pool/:id', authMiddleware, updatePoolById);
     api.delete('/pool/:id', authMiddleware, deletePoolById);
 
+    // Bill
+    api.get('/bill', authMiddleware, getAllBills);
+    api.get('/bill/:id', authMiddleware, getBillById);
+    api.post('/bill', authMiddleware, createBill);
+    api.delete('/bill/:id', authMiddleware, deleteBillById);
+    api.post('/bill/:id/receipt', authMiddleware, issueReceipt);
     return api;
 }
 

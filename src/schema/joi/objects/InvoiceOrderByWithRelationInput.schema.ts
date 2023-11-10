@@ -8,6 +8,7 @@ export const InvoiceOrderByWithRelationInputSchemaObject = {
     id: SortOrderSchema,
   paidAt: Joi.alternatives().try(SortOrderSchema,
 Joi.object().keys(SortOrderInputSchemaObject)),
+  vatIncluded: SortOrderSchema,
   createdAt: SortOrderSchema,
   updatedAt: SortOrderSchema,
   customerOrder: Joi.object().keys(CustomerOrderOrderByWithRelationInputSchemaObject)

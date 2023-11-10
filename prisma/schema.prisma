@@ -43,6 +43,7 @@ model Product {
 model Invoice {
   id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   paidAt        DateTime?
+  vatIncluded   Boolean         @default(false)
   customerOrder CustomerOrder?
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt

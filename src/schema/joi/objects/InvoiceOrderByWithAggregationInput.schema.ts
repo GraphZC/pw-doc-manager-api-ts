@@ -10,6 +10,7 @@ export const InvoiceOrderByWithAggregationInputSchemaObject = {
     id: SortOrderSchema,
   paidAt: Joi.alternatives().try(SortOrderSchema,
 Joi.object().keys(SortOrderInputSchemaObject)),
+  vatIncluded: SortOrderSchema,
   createdAt: SortOrderSchema,
   updatedAt: SortOrderSchema,
   _count: Joi.object().keys(InvoiceCountOrderByAggregateInputSchemaObject),
