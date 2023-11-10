@@ -39,15 +39,15 @@ export const createBill = async (req: Request, res: Response) => {
         });
     }
 
-    // try {
-        const bill = await billService.createBill({ ...value, invoice: { vatIncluded: false }  });
+    try {
+        const bill = await billService.createBill({ ...value, invoice: { vatIncluded: value.invoice.vatIncluded ?? false }  });
     
         return res.status(201).json(bill);
-    // } catch (error) {
+    } catch (error) {
         return res.status(400).json({
             message: "Fail to create bill"
         });
-    // }
+    }
 };
 
 export const deleteBillById = async (req: Request, res: Response) => {
