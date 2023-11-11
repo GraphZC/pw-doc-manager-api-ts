@@ -46,6 +46,9 @@ const getAllPools = async (): Promise<Pool[]> => {
         include: {
             serviceDay: true,
             customer: true
+        },
+        orderBy: {
+            createdAt: 'desc',
         }
     });
 

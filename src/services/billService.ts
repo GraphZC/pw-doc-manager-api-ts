@@ -14,6 +14,9 @@ const getAllBills = async () => {
                     pool: true,
                 }
             }
+        },
+        orderBy: {
+            createdAt: 'desc',
         }
     });
 

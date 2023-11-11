@@ -6,7 +6,11 @@ import passwordEncoder from "@/utils/passwordEncoder";
 const prisma = Prisma.client()
 
 const getAllEmployees = async (): Promise<Employee[]> => {
-    const employees = await prisma.employee.findMany();
+    const employees = await prisma.employee.findMany({
+        orderBy: {
+            createdAt: 'desc',
+        }
+    });
 
     return employees;
 }

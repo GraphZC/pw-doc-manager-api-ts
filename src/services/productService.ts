@@ -3,7 +3,11 @@ import Prisma from "./prisma";
 const prisma = Prisma.client();
 
 const getAllProducts = async () => {
-    const products = await prisma.product.findMany();
+    const products = await prisma.product.findMany({
+        orderBy: {
+            createdAt: 'desc',
+        }
+    });
     return products;
 }
 

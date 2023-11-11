@@ -4,7 +4,11 @@ import Prisma from "./prisma";
 const prisma = Prisma.client();
 
 const getAllCustomers = async (): Promise<Customer[]> => {
-    const customers = await prisma.customer.findMany({});
+    const customers = await prisma.customer.findMany({
+        orderBy: {
+            createdAt: 'desc',
+        }
+    });
     return customers;
 };
 
