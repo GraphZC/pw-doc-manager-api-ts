@@ -101,3 +101,9 @@ web_modules/
 # upload 
 public/upload/category
 public/upload/food
+
+# dist
+dist
+
+# joi generate
+prisma/generated-joi-schemas
