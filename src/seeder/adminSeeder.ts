@@ -2,12 +2,11 @@ import employee from '@/services/employeeService';
 import { EmployeeRole } from '@prisma/client'
 const adminSeeder = async () => {
     await employee.createEmployee({
+        name: 'Admin',
         username: 'admin',
         password: 'admin',
-        name: 'admin',
-        telephone: '0812345678',
-        role: EmployeeRole.ADMIN,
-    });
+        role: EmployeeRole.ADMIN
+    })
 }
 
 export default adminSeeder

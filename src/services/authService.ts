@@ -39,6 +39,7 @@ const generateAccessToken = async (username: string): Promise<string> => {
 
     const token = jwt.sign(
         {
+            id: user?.id,
             username: user?.username,
             role: user?.role,
             name: user?.name,
@@ -61,6 +62,7 @@ const generateRefreshToken = async (username: string): Promise<string> => {
 
     const token = jwt.sign(
         {
+            id: user?.id,
             username: user?.username,
             role: user?.role,
             name: user?.name,
