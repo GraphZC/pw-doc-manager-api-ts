@@ -6,6 +6,15 @@ This project made for Poolworld company to manage their documents.
 
 This project is a backend API for Poolworld Document Management. It is built with Node.js, TypeScript, Express.js, Prisma, and PostgreSQL.
 
+## Members
+
+1. 6410401078 ธนฤกษ์ โอเจริญ
+2. 6410402121 ภูริต เทพกฤษณ์
+3. 6410406568 ณัชพล เรืองนาม
+4. 6410406771 ปัณณทัต ด้วงแค
+5. 6410406703 นภสมล ศิริบรรจง
+6. 6410406878 ศรันย์ภวัต โพธิ์สร้อย
+
 ## Getting Started
 
 ### Pre-requisites
@@ -58,7 +67,7 @@ npm run seed
 
 ### Postman
 
-https://pwdoc-man.postman.co
+[https://pwdoc-man.postman.co](https://pwdoc-man.postman.co)
 
 ### Development
 
