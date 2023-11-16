@@ -7,11 +7,14 @@
     "dev": "nodemon src/app.ts",
     "start": "node dist/app.js",
     "seed": "ts-node src/seeder/seeder.ts",
-    "build": "tsc"
+    "build": "tsc && resolve-tspaths"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "dependencies": {
     "@prisma/client": "5.4.2",
     "@types/bcrypt": "^5.0.1",
@@ -35,6 +38,7 @@
     "@types/jsonwebtoken": "^9.0.4",
     "@types/node": "^20.8.8",
     "prisma": "^5.5.0",
+    "resolve-tspaths": "^0.8.17",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
