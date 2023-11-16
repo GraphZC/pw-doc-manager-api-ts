@@ -7,7 +7,7 @@
     "dev": "nodemon src/app.ts",
     "start": "node dist/app.js",
     "seed": "ts-node src/seeder/seeder.ts",
-    "build": "tsc && resolve-tspaths"
+    "build": "tsc && npx resolve-tspaths"
   },
   "keywords": [],
   "author": "",
