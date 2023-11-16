@@ -6,7 +6,7 @@ async function main() {
         data: {
             name: 'Admin',
             username: 'admin',
-            password: 'admin',
+            password: '$2b$15$2ICbICuMXuJqIxJkHeNZ3exAhgfH/US7nSiomkXXgUEiemJU9T0Aq',
             role: EmployeeRole.ADMIN,
         }, 
     });
